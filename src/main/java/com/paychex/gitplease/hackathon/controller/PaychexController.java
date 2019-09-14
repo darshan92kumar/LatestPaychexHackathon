@@ -120,7 +120,7 @@ public class PaychexController {
 	        	int value = entry.getValue();
 	        	value++;
 	        	analyticMap.put(serviceKey, value);
-	        	serviceAnalytics.setAnalyticsMap(analyticMap);
+	        	serviceAnalytics.setAnalyticsMap(analyticMap); 
 	        	return;
 	        }        
 	    }
