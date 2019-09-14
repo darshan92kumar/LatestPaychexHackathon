@@ -3,6 +3,7 @@ package com.paychex.gitplease.hackathon.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -42,8 +43,20 @@ public class PaychexController {
 	}
 
 	@RequestMapping("/adminLoginPage")
-	public String adminLoginPage() {
-		return "login";
+	public ModelAndView adminLoginPage() {
+		
+		ModelAndView modelAndView = new ModelAndView("login");
+		return modelAndView;
+	}
+	
+	@RequestMapping("/admin")
+	@Secured("ADMIN")
+	public ModelAndView adminPage() {
+		
+		ModelAndView modelAndView = new ModelAndView("admin");
+		modelAndView.addObject("number", 6);
+		modelAndView.addObject("message", "Hello from Spring MVC");
+		return modelAndView;
 	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)

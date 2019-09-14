@@ -30,7 +30,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 		http.authorizeRequests()
 				//.anyRequest().authenticated() // this means ANY request, not restricted.
-			.antMatchers("/admin.html").hasRole("ADMIN")
+			.antMatchers("/admin").hasRole("ADMIN")
 			.and()
 			.formLogin()
 				.loginPage("/adminLoginPage")
