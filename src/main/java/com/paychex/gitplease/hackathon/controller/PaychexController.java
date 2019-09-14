@@ -1,5 +1,7 @@
 package com.paychex.gitplease.hackathon.controller;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -13,16 +15,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.paychex.gitplease.hackathon.models.SectionCounter;
+import com.paychex.gitplease.hackathon.models.ServiceAnalytics;
 
 @Controller
-public class PaychexController {
+public class PaychexController {	
+	
+	private ServiceAnalytics serviceAnalytics = ServiceAnalytics.getInstance() ;
 
 	@RequestMapping("/")
 	public ModelAndView landingPage() {
 
 		ModelAndView modelAndView = new ModelAndView("index");
+		analytics("HOME",serviceAnalytics.getAnalyticsMap());
 		return intSectionCounter(modelAndView);
-	}
+	}	
 
 	private ModelAndView intSectionCounter(ModelAndView modelAndView) {
 
@@ -54,8 +60,12 @@ public class PaychexController {
 	public ModelAndView adminPage() {
 		
 		ModelAndView modelAndView = new ModelAndView("admin");
-		modelAndView.addObject("number", 6);
-		modelAndView.addObject("message", "Hello from Spring MVC");
+		modelAndView.addObject("Home", serviceAnalytics.getAnalyticsMap().get("HOME") == null ? 0 : serviceAnalytics.getAnalyticsMap().get("HOME"));
+		modelAndView.addObject("About", serviceAnalytics.getAnalyticsMap().get("ABOUT") == null ? 0 : serviceAnalytics.getAnalyticsMap().get("ABOUT"));
+		modelAndView.addObject("Projects", serviceAnalytics.getAnalyticsMap().get("PROJECT") == null ? 0 : serviceAnalytics.getAnalyticsMap().get("PROJECT"));
+		modelAndView.addObject("Services", serviceAnalytics.getAnalyticsMap().get("SERVICES") == null ? 0 : serviceAnalytics.getAnalyticsMap().get("SERVICES"));
+		modelAndView.addObject("Blog", serviceAnalytics.getAnalyticsMap().get("BLOG") == null ? 0 : serviceAnalytics.getAnalyticsMap().get("BLOG"));
+		modelAndView.addObject("Contact", serviceAnalytics.getAnalyticsMap().get("CONTACT") == null ? 0 : serviceAnalytics.getAnalyticsMap().get("CONTACT"));
 		return modelAndView;
 	}
 
@@ -67,5 +77,55 @@ public class PaychexController {
 		}
 		return "redirect:/";
 	}
+	
+	@RequestMapping("/contact")
+	public ModelAndView contactUsPage() {
+		ModelAndView modelAndView = new ModelAndView("contact");
+		analytics("CONTACT",serviceAnalytics.getAnalyticsMap());
+		return modelAndView;
+	}
+	
+	@RequestMapping("/about")
+	public ModelAndView aboutUsPage() {
+		ModelAndView modelAndView = new ModelAndView("about");
+		analytics("ABOUT",serviceAnalytics.getAnalyticsMap());
+		return modelAndView;
+	}
+	
+	@RequestMapping("/project")
+	public ModelAndView projectPage() {
+		ModelAndView modelAndView = new ModelAndView("project");
+		analytics("PROJECT",serviceAnalytics.getAnalyticsMap());
+		return modelAndView;
+	}
+	
+	@RequestMapping("/services")
+	public ModelAndView servicePage() {
+		ModelAndView modelAndView = new ModelAndView("services");
+		analytics("SERVICES",serviceAnalytics.getAnalyticsMap());
+		return modelAndView;
+	}
+	
+	@RequestMapping("/blog")
+	public ModelAndView blogPage() {
+		ModelAndView modelAndView = new ModelAndView("blog");
+		analytics("BLOG",serviceAnalytics.getAnalyticsMap());
+		return modelAndView;
+	}
+	
+	private void analytics(String serviceKey, Map<String, Integer> analyticMap) {
+		
+		for (Map.Entry<String, Integer> entry : analyticMap.entrySet()) {
+	        if(entry.getKey().equalsIgnoreCase(serviceKey)) {
+	        	int value = entry.getValue();
+	        	value++;
+	        	analyticMap.put(serviceKey, value);
+	        	serviceAnalytics.setAnalyticsMap(analyticMap); 
+	        	return;
+	        }        
+	    }
 
+        analyticMap.put(serviceKey, 1);
+        serviceAnalytics.setAnalyticsMap(analyticMap);		
+	}
 }
