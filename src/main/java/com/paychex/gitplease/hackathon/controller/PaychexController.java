@@ -26,7 +26,7 @@ public class PaychexController {
 	public ModelAndView landingPage() {
 
 		ModelAndView modelAndView = new ModelAndView("index");
-		analytics("HOME",serviceAnalytics.getAnalyticsMap());
+		registerForAnalytics("HOME",serviceAnalytics.getAnalyticsMap());
 		return intSectionCounter(modelAndView);
 	}	
 
@@ -81,39 +81,39 @@ public class PaychexController {
 	@RequestMapping("/contact")
 	public ModelAndView contactUsPage() {
 		ModelAndView modelAndView = new ModelAndView("contact");
-		analytics("CONTACT",serviceAnalytics.getAnalyticsMap());
+		registerForAnalytics("CONTACT",serviceAnalytics.getAnalyticsMap());
 		return modelAndView;
 	}
 	
 	@RequestMapping("/about")
 	public ModelAndView aboutUsPage() {
 		ModelAndView modelAndView = new ModelAndView("about");
-		analytics("ABOUT",serviceAnalytics.getAnalyticsMap());
-		return modelAndView;
+		registerForAnalytics("ABOUT",serviceAnalytics.getAnalyticsMap());
+		return intSectionCounter(modelAndView);
 	}
 	
 	@RequestMapping("/project")
 	public ModelAndView projectPage() {
 		ModelAndView modelAndView = new ModelAndView("project");
-		analytics("PROJECT",serviceAnalytics.getAnalyticsMap());
+		registerForAnalytics("PROJECT",serviceAnalytics.getAnalyticsMap());
 		return modelAndView;
 	}
 	
 	@RequestMapping("/services")
 	public ModelAndView servicePage() {
 		ModelAndView modelAndView = new ModelAndView("services");
-		analytics("SERVICES",serviceAnalytics.getAnalyticsMap());
+		registerForAnalytics("SERVICES",serviceAnalytics.getAnalyticsMap());
 		return modelAndView;
 	}
 	
 	@RequestMapping("/blog")
 	public ModelAndView blogPage() {
 		ModelAndView modelAndView = new ModelAndView("blog");
-		analytics("BLOG",serviceAnalytics.getAnalyticsMap());
+		registerForAnalytics("BLOG",serviceAnalytics.getAnalyticsMap());
 		return modelAndView;
 	}
 	
-	private void analytics(String serviceKey, Map<String, Integer> analyticMap) {
+	private void registerForAnalytics(String serviceKey, Map<String, Integer> analyticMap) {
 		
 		for (Map.Entry<String, Integer> entry : analyticMap.entrySet()) {
 	        if(entry.getKey().equalsIgnoreCase(serviceKey)) {
