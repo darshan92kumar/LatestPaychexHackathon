@@ -9998,6 +9998,16 @@ textarea.form-control {
   opacity: 0.8;
 }
 
+.loading{
+  background-image : url('../images/loading.gif');  
+  background-repeat:no-repeat;
+}
+.loading:after {
+    content: "Logging in...";
+    text-align : right;
+    padding-left : 25px;
+}
+
 @media only screen and (max-width: 767px) {
   .notfound .notfound-404 {
     height: 110px;
