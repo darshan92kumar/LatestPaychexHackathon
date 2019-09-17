@@ -38,7 +38,7 @@ public class EmailController {
         MimeMessageHelper helper = new MimeMessageHelper(message);
          
         helper.setTo(quote.getEmail());
-        helper.setText("Your price: 80,000$"); // This will be dynamic in future
+        helper.setText("Our quoted price is 80,000$ for your requested service: "+quote.getService()); // This will be dynamic in future
         helper.setSubject("Quote from paychex for your requested service "+quote.getService());
         System.out.println("Sending email to "+quote.getFirstName()+","+quote.getLastName());
          
