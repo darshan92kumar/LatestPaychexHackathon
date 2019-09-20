@@ -44,7 +44,8 @@ html {
   font-family: sans-serif;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  scroll-behavior: smooth;  }
 
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block; }
@@ -9995,6 +9996,16 @@ textarea.form-control {
 
 .notfound a:hover {
   opacity: 0.8;
+}
+
+.loading{
+  background-image : url('../images/loading.gif');  
+  background-repeat:no-repeat;
+}
+.loading:after {
+    content: "Logging in...";
+    text-align : right;
+    padding-left : 25px;
 }
 
 @media only screen and (max-width: 767px) {

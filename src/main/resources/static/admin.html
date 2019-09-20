@@ -23,36 +23,26 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="favicon.png" type="image/png" />
   </head>
   <body>
 	  <div class="bg-top navbar-light">
     	<div class="container">
     		<div class="row no-gutters d-flex align-items-center align-items-stretch">
     			<div class="col-md-4 d-flex align-items-center py-4">
-    				<a class="navbar-brand" href="index.html">Consolution</a>
+    				<a class="navbar-brand" href="/"> <img alt="text" src="images/paychex_logo.png"
+						width="160" height="35">
+					</a>
     			</div>
 	    		<div class="col-lg-8 d-block">
 		    		<div class="row d-flex">
-					    <div class="col-md d-flex topper align-items-center align-items-stretch py-md-4">
-					    	<div class="icon d-flex justify-content-center align-items-center"><span class="icon-paper-plane"></span></div>
-					    	<div class="text">
-					    		<span>Email</span>
-						    	<span>youremail@email.com</span>
-						    </div>
 					    </div>
 					    <div class="col-md d-flex topper align-items-center align-items-stretch py-md-4">
 					    	<div class="icon d-flex justify-content-center align-items-center"><span class="icon-phone2"></span></div>
 						    <div class="text">
 						    	<span>Call</span>
-						    	<span>Call Us: + 1235 2355 98</span>
+						    	<span>Call Us: + 080 4128 7409</span>
 						    </div>
-					    </div>
-					    <div class="col-md topper d-flex align-items-center justify-content-end">
-					    	<p class="mb-0">
-					    		<a href="#" class="btn py-2 px-3 btn-primary d-flex align-items-center justify-content-center">
-					    			<span>Free Consulting</span>
-					    		</a>
-					    	</p>
 					    </div>
 				    </div>
 			    </div>
@@ -72,12 +62,12 @@
         </form>
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav mr-auto">
-	        	<li class="nav-item"><a href="index.html" class="nav-link pl-0">Home</a></li>
-	        	<li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-	        	<li class="nav-item"><a href="project.html" class="nav-link">Projects</a></li>
-	        	<li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
-	        	<li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-	          	<li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+	        	<li class="nav-item"><a href="/" class="nav-link pl-0">Home</a></li>
+	        	<li class="nav-item active"><a href="/about" class="nav-link">About</a></li>
+	        	<li class="nav-item"><a href="/project" class="nav-link">Projects</a></li>
+	        	<li class="nav-item"><a href="/services" class="nav-link">Services</a></li>
+	        	<li class="nav-item"><a href="/blog" class="nav-link">Blog</a></li>
+	            <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
 	          	<li class="nav-item active"><a href="admin.html" class="nav-link">Admin</a></li>
 	        </ul>
 	      </div>
@@ -90,125 +80,62 @@
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center">
-            <h1 class="mb-2 bread">Project</h1>
-            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Project <i class="ion-ios-arrow-forward"></i></span></p>
+            <h1 class="mb-2 bread">Admin</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Admin <i class="ion-ios-arrow-forward"></i></span></p>
           </div>
         </div>
       </div>
     </section>
+    <!-- Pass graph values through hidden fields -->
+    <input type="hidden" id="Home" th:value="${Home}">
+    <input type="hidden" id="About" th:value="${About}">
+    <input type="hidden" id="Projects" th:value="${Projects}">
+    <input type="hidden" id="Services" th:value="${Services}">
+    <input type="hidden" id="Blog" th:value="${Blog}">
+    <input type="hidden" id="Contact" th:value="${Contact}">
 
     <section class="ftco-section">
 			<div class="container">
-				<div class="row">
-    			<div class="col-md-4">
-    				<div class="project mb-4 img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/project-2.jpg);">
-    					<div class="overlay"></div>
-    					<a href="#" class="btn-site d-flex align-items-center justify-content-center"><span class="icon-subdirectory_arrow_right"></span></a>
-	    				<div class="text text-center p-4">
-	    					<h3><a href="#">Branding &amp; Illustration Design</a></h3>
-	    					<span>Web Design</span>
-	    				</div>
-    				</div>
-  				</div>
-  				<div class="col-md-4">
-    				<div class="project mb-4 img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/project-1.jpg);">
-    					<div class="overlay"></div>
-    					<a href="#" class="btn-site d-flex align-items-center justify-content-center"><span class="icon-subdirectory_arrow_right"></span></a>
-	    				<div class="text text-center p-4">
-	    					<h3><a href="#">Branding &amp; Illustration Design</a></h3>
-	    					<span>Web Design</span>
-	    				</div>
-    				</div>
-  				</div>
+			
+			<div id="piechart"></div>
 
-    			<div class="col-md-4">
-    				<div class="project mb-4 img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/project-3.jpg);">
-    					<div class="overlay"></div>
-    					<a href="#" class="btn-site d-flex align-items-center justify-content-center"><span class="icon-subdirectory_arrow_right"></span></a>
-	    				<div class="text text-center p-4">
-	    					<h3><a href="#">Branding &amp; Illustration Design</a></h3>
-	    					<span>Web Design</span>
-	    				</div>
-    				</div>
-    			</div>
-					<div class="col-md-4">
-    				<div class="project mb-4 img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/project-4.jpg);">
-    					<div class="overlay"></div>
-    					<a href="#" class="btn-site d-flex align-items-center justify-content-center"><span class="icon-subdirectory_arrow_right"></span></a>
-	    				<div class="text text-center p-4">
-	    					<h3><a href="#">Branding &amp; Illustration Design</a></h3>
-	    					<span>Web Design</span>
-	    				</div>
-    				</div>
-  				</div>
-  				<div class="col-md-4">
-    				<div class="project mb-4 img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/project-5.jpg);">
-    					<div class="overlay"></div>
-    					<a href="#" class="btn-site d-flex align-items-center justify-content-center"><span class="icon-subdirectory_arrow_right"></span></a>
-	    				<div class="text text-center p-4">
-	    					<h3><a href="#">Branding &amp; Illustration Design</a></h3>
-	    					<span>Web Design</span>
-	    				</div>
-    				</div>
-  				</div>
-  				<div class="col-md-4">
-    				<div class="project mb-4 img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/project-6.jpg);">
-    					<div class="overlay"></div>
-    					<a href="#" class="btn-site d-flex align-items-center justify-content-center"><span class="icon-subdirectory_arrow_right"></span></a>
-	    				<div class="text text-center p-4">
-	    					<h3><a href="#">Branding &amp; Illustration Design</a></h3>
-	    					<span>Web Design</span>
-	    				</div>
-    				</div>
-  				</div>
-  				<div class="col-md-4">
-    				<div class="project mb-4 img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/project-7.jpg);">
-    					<div class="overlay"></div>
-    					<a href="#" class="btn-site d-flex align-items-center justify-content-center"><span class="icon-subdirectory_arrow_right"></span></a>
-	    				<div class="text text-center p-4">
-	    					<h3><a href="#">Branding &amp; Illustration Design</a></h3>
-	    					<span>Web Design</span>
-	    				</div>
-    				</div>
-  				</div>
-  				<div class="col-md-4">
-    				<div class="project mb-4 img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/project-8.jpg);">
-    					<div class="overlay"></div>
-    					<a href="#" class="btn-site d-flex align-items-center justify-content-center"><span class="icon-subdirectory_arrow_right"></span></a>
-	    				<div class="text text-center p-4">
-	    					<h3><a href="#">Branding &amp; Illustration Design</a></h3>
-	    					<span>Web Design</span>
-	    				</div>
-    				</div>
-  				</div>
-					<div class="col-md-4">
-    				<div class="project mb-4 img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/project-9.jpg);">
-    					<div class="overlay"></div>
-    					<a href="#" class="btn-site d-flex align-items-center justify-content-center"><span class="icon-subdirectory_arrow_right"></span></a>
-	    				<div class="text text-center p-4">
-	    					<h3><a href="#">Branding &amp; Illustration Design</a></h3>
-	    					<span>Web Design</span>
-	    				</div>
-    				</div>
-  				</div>
-    		</div>
-    		<div class="row mt-5">
-          <div class="col text-center">
-            <div class="block-27">
-              <ul>
-                <li><a href="#">&lt;</a></li>
-                <li class="active"><span>1</span></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&gt;</a></li>
-              </ul>
-            </div>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+  var Home = parseInt(document.getElementById("Home").value);
+  var About = parseInt(document.getElementById("About").value);
+  var Projects = parseInt(document.getElementById("Projects").value);
+  var Services = parseInt(document.getElementById("Services").value);
+  var Blog = parseInt(document.getElementById("Blog").value);
+  var Contact = parseInt(document.getElementById("Contact").value);
+  
+  var data = google.visualization.arrayToDataTable([
+  ['Task', 'Hours per Day'],
+  ['Home', Home],
+  ['About', About],
+  ['Projects',Projects],
+  ['Services', Services],
+  ['Blog', Blog],
+  ['Contact', Contact]
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'My Average Day', 'width':550, 'height':400};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(data, options);
+}
+</script>
+			
           </div>
-        </div>
-			</div>
-		</section>
+	</section>
 
 		
     <footer class="ftco-footer ftco-bg-dark ftco-section">
@@ -219,9 +146,8 @@
             	<h2 class="ftco-heading-2">Have a Questions?</h2>
             	<div class="block-23 mb-3">
 	              <ul>
-	                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+	                <li><span class="icon icon-map-marker"></span><span class="text"> No 90, GR Icon building, Jyoti Nivas College Road, Koramangala Industrial Layout, 5th Block, Koramangala, Bengaluru, Karnataka 560034 India</span></li>
+	                <li><a href="#"><span class="icon icon-phone"></span><span class="text"> 080 4128 7409</span></a></li>	                
 	              </ul>
 	            </div>
             </div>
@@ -230,12 +156,11 @@
             <div class="ftco-footer-widget mb-5">
               <h2 class="ftco-heading-2">Recent Blog</h2>
               <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(images/image_1.jpg);"></a>
+              <a class="blog-img mr-4" style="background-image: url(images/inc.png);"></a>
                 <div class="text">
-                  <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
+                  <h3 class="heading"><a href="#">Paychex Flex named best HR outsourcing for small business overall</a></h3>
                   <div class="meta">
-                    <div><a href="#"><span class="icon-calendar"></span> June 27, 2019</a></div>
-                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                    <div><a href="#"><span class="icon-calendar"></span> Oct 3, 2017</a></div>
                     <div><a href="#"><span class="icon-chat"></span> 19</a></div>
                   </div>
                 </div>
@@ -243,10 +168,9 @@
               <div class="block-21 mb-5 d-flex">
                 <a class="blog-img mr-4" style="background-image: url(images/image_2.jpg);"></a>
                 <div class="text">
-                  <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
+                  <h3 class="heading"><a href="#">The advantages of a 401(k) Plan for smaller Businesses</a></h3>
                   <div class="meta">
-                    <div><a href="#"><span class="icon-calendar"></span> June 27, 2019</a></div>
-                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                    <div><a href="#"><span class="icon-calendar"></span> September 15, 2019</a></div>
                     <div><a href="#"><span class="icon-chat"></span> 19</a></div>
                   </div>
                 </div>
@@ -257,11 +181,12 @@
             <div class="ftco-footer-widget mb-5 ml-md-4">
               <h2 class="ftco-heading-2">Links</h2>
               <ul class="list-unstyled">
-                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Home</a></li>
-                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>About</a></li>
-                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Services</a></li>
-                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Projects</a></li>
-                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Contact</a></li>
+                 <li><a href="/"><span class="ion-ios-arrow-round-forward mr-2"></span>Home</a></li>
+                <li><a href="/about"><span class="ion-ios-arrow-round-forward mr-2"></span>About</a></li>
+                <li><a href="/services"><span class="ion-ios-arrow-round-forward mr-2"></span>Services</a></li>
+                <li><a href="/project"><span class="ion-ios-arrow-round-forward mr-2"></span>Projects</a></li>
+                <li><a href="/contact"><span class="ion-ios-arrow-round-forward mr-2"></span>Contact</a></li>
+                <li><a href="admin"><span class="ion-ios-arrow-round-forward mr-2"></span>Admin</a></li>
               </ul>
             </div>
           </div>
@@ -278,20 +203,18 @@
             <div class="ftco-footer-widget mb-5">
             	<h2 class="ftco-heading-2 mb-0">Connect With Us</h2>
             	<ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
-                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+               <li class="ftco-animate"><a href="https://twitter.com/Paychex"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="http://www.facebook.com/Paychex"><span class="icon-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="https://www.linkedin.com/company/paychex/"><span class="icon-linkedin"></span></a></li>
+				<li class="ftco-animate"><a href="#"><span class="icon-whatsapp"></span></a></li>
               </ul>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-md-12 text-center">
-
-            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-          </div>
+        <p>Made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">GitPlease</a></p>
+     </div>
         </div>
       </div>
     </footer>
