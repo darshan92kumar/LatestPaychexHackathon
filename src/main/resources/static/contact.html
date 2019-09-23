@@ -248,9 +248,23 @@
   <script src="js/aos.js"></script>
   <script src="js/jquery.animateNumber.min.js"></script>
   <script src="js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap">
+  </script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-    
+        <script>
+// Initialize and add the map
+function initMap() {
+  // The location of Uluru
+  var uluru = {lat: 12.932944, lng: 77.614974};
+  // The map, centered at Uluru
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 18, center: uluru});
+  // The marker, positioned at Uluru
+  var marker = new google.maps.Marker({position: uluru, map: map});
+}
+    </script>
+	
   </body>
 </html>
